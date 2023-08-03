@@ -1,0 +1,45 @@
+{
+  "name": "angular-radial-color-picker",
+  "version": "3.0.1",
+  "description": "Angular-ready radial color picker with some hex code input.",
+  "main": "dist/color-picker.cjs.js",
+  "module": "dist/color-picker.esm.js",
+  "browser": "dist/color-picker.umd.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist && mkdirp dist/css",
+    "build": "npm run clean && npm run scss && rollup -c",
+    "dev": "rollup -c -w",
+    "scss:src": "node-sass -q --output-style expanded src/scss/color-picker.scss dist/css/color-picker.css",
+    "scss:dist": "node-sass --source-map true --source-map-contents -q --output-style compressed src/scss/color-picker.scss dist/css/color-picker.min.css && copyfiles -f src/scss/color-picker.scss dist/css",
+    "scss": "mkdirp dist/css && npm run scss:src && npm run scss:dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lokendrakumar/ng-radial-color-picker.git"
+  },
+
+  "keywords": [
+    "angular",
+    "material",
+    "color",
+    "color picker"
+  ],
+  "license": "MIT",
+
+  "devDependencies": {
+    "copyfiles": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.6.0",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel-minify": "^3.1.2"
+  },
+  "peerDependencies": {
+    "angular": "^1.5.8"
+  }
+}

@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <canvas #canvas></canvas>
+  <div class="rotator" #rotator rcpRotatable [disable]="disabled" [angle]="hueValue" (rotating)="onRotate($event)"
+    [active]="active">
+
+    <div class="knob" #knob >
+      <div class="color-shadow" [style.background-color]="value"></div>
+    </div>
+  </div>
+  <rcp-color-preview [color]="value" [size]="size" [coefficient]="coefficient" (confirm)="confirmColor($event)">
+  </rcp-color-preview>
+</div>
